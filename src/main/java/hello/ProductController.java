@@ -21,10 +21,10 @@ public class ProductController {
 
 	/* GET Function */
 	@RequestMapping("/api/v1/product")
-	public ArrayList<Product> listProducts() {
+	public ArrayList<account> listProducts() {
 		System.out.println("HELLO");
 		try {
-			ArrayList<Product> output = new ArrayList<Product>();
+			ArrayList<account> output = new ArrayList<account>();
 			Connection connection = null;
 			
 
@@ -32,10 +32,10 @@ public class ProductController {
 
 			Statement stmt = connection.createStatement();
 
-			ResultSet rs = stmt.executeQuery("SELECT product2.name, product2.productcode FROM salesforce.product2 LIMIT 10");
+			ResultSet rs = stmt.executeQuery("SELECT account.name FROM salesforce.account LIMIT 10");
 
 			while (rs.next()) {
-				Product p = new Product(rs.getString(1), rs.getString(2));
+				account p = new account(rs.getString(1), rs.getString(2));
 				output.add(p);
 
 			}
@@ -50,10 +50,10 @@ public class ProductController {
 	}
 
 	@RequestMapping("/api/v1/add")
-	public ArrayList<Product> newProduct(@RequestParam("name") String name, @RequestParam("pc") String productcode) {
+	public ArrayList<account> newProduct(@RequestParam("name") String name) {
 
 		try {
-			ArrayList<Product> output = new ArrayList<Product>();
+			ArrayList<account> output = new ArrayList<account>();
 			Connection connection = null;
 
 			connection = DatabaseUrl.extract().getConnection();
