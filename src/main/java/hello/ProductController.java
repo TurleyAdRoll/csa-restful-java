@@ -24,7 +24,7 @@ public class ProductController {
 	public ArrayList<Product> listProducts() {
 		System.out.println("HELLO");
 		try {
-			ArrayList<account> output = new ArrayList<account>();
+			ArrayList<Product> output = new ArrayList<Product>();
 			Connection connection = null;
 			
 
@@ -35,7 +35,7 @@ public class ProductController {
 			ResultSet rs = stmt.executeQuery("SELECT account.name FROM salesforcedevbox.account LIMIT 10");
 
 			while (rs.next()) {
-				account p = new Product(rs.getString(1), rs.getString(2));
+				Product p = new Product(rs.getString(1), rs.getString(2));
 				output.add(p);
 
 			}
