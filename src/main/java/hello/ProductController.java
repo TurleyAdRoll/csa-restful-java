@@ -32,7 +32,7 @@ public class ProductController {
 
 			Statement stmt = connection.createStatement();
 
-			ResultSet rs = stmt.executeQuery("SELECT account.name FROM salesforce.account LIMIT 10");
+			ResultSet rs = stmt.executeQuery("SELECT account.name FROM salesforcedevbox.account LIMIT 10");
 
 			while (rs.next()) {
 				account p = new account(rs.getString(1), rs.getString(2));
