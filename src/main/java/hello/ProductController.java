@@ -21,7 +21,7 @@ public class ProductController {
 
 	/* GET Function */
 	@RequestMapping("/api/v1/product")
-	public ArrayList<account> listProducts() {
+	public ArrayList<Product> listProducts() {
 		System.out.println("HELLO");
 		try {
 			ArrayList<account> output = new ArrayList<account>();
